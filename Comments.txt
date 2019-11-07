@@ -1,0 +1,7 @@
+gender: working
+email: working
+profession: working
+location: working, not efficiently designed. Should be two tables.
+status: working
+interests: not done
+seeking: not done

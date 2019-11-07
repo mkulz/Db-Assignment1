@@ -13,6 +13,11 @@
 
 
 #run my_contacts file to set up initial database
+use Normalization1;
+# Add a Primary Key to the my_contacts table.
+alter table my_contacts
+    add column PersonID int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT;
+
 
 #create gender table
 drop table if exists gender;
@@ -55,12 +60,12 @@ create table professions (
     order by profession;
 
 alter table my_contacts
-    add column profession_ID int(11)
+    add column profession_ID int(11);
 
 update my_contacts
     inner join professions
-    on professions.profession = my_contacts.professions
-    set my_contacts.profession_ID = professions.professsion_ID
+    on professions.profession = my_contacts.profession
+    set my_contacts.profession_ID = professions.profession_ID
     where professions.profession is not null;
 
 #create status table
@@ -77,7 +82,7 @@ create table statuses(
     order by status;
 
 alter table my_contacts
-    add column status_ID int(11)
+    add column status_ID int(11);
 
 update my_contacts
     inner join statuses
@@ -128,11 +133,11 @@ create table interests(
 #select * from interests;
 
 #create seeking table
-drop table if exists seekings
+drop table if exists seekings;
 create table seekings (
-    Seeking1 varchar(150)
-    Seeking2 varchar(150)
-    PersonID int(11)
+    Seeking1 varchar(150),
+    Seeking2 varchar(150),
+    PersonID int(11),
     foreign key (PersonID) references my_Contacts (PersonID)
 ) as
     select distinct
@@ -143,13 +148,13 @@ create table seekings (
     order by seeking;
 		
 #drop unnecessary columns
-alter table my_contacts
-    drop column (
-        email,
-        gender,
-        profession,
-        location,
-        status,
-        interests,
-        seeking
-    );
+# alter table my_contacts
+#     drop column (
+#         email,
+#         gender,
+#         profession,
+#         location,
+#         status,
+#         interests,
+#         seeking
+#     );
