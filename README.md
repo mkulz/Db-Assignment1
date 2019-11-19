@@ -1,6 +1,7 @@
 # Db-Assignment1
-# finished assignment
+
 # run files in this order:
+  # contacts.sql
   # gen-em-prof-stat.sql
   # inter.sql
   # seek.sql
